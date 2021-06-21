@@ -1,6 +1,8 @@
 package view;
 
 import utils.SwingUtil;
+import view.page.client.Client;
+import view.page.implementes.PagesImpl;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +14,7 @@ import java.awt.event.ActionEvent;
  */
 public class View {
 
-    private static final String MENU [] = {"时间戳转换","JSON转换","Mysql连接测试","Redis连接测试","查看PDM文件"};
+
     public static void createGUI() {
         // 创建一个 窗口
         JFrame frame = SwingUtil.createJFrame("小工具", 500, 500);
@@ -38,10 +40,9 @@ public class View {
     private static void createMenus(JFrame frame, JPanel pages) {
 
         JMenuBar jMenuBar = new JMenuBar();
-
         JMenu jMenu = new JMenu("菜单");
-        for (int i = 0; i < MENU.length; i++) {
-            JMenuItem jMenuItem = new JMenuItem(MENU[i]);
+        for (int i = 0; i < Constant.MENU.length; i++) {
+            JMenuItem jMenuItem = new JMenuItem(Constant.MENU[i]);
             jMenuItem.addActionListener(e->showPage(e,pages));
             jMenu.add(jMenuItem);
         }
@@ -64,13 +65,13 @@ public class View {
     private static void createPage(JPanel pages) {
         pages.setLayout(new CardLayout());
 
-        for (int i = 0; i < MENU.length; i++) {
+        for (int i = 0; i < Constant.MENU.length; i++) {
 
             JPanel panel = SwingUtil.createPanel();
 
-            panel.add(SwingUtil.createLabel(MENU[i]));
+            new Client(new PagesImpl()).createPage(panel,Constant.MENU[i]);
 
-            pages.add(MENU[i],panel);
+            pages.add(Constant.MENU[i],panel);
         }
     }
 }

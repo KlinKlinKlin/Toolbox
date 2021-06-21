@@ -8,3 +8,7 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
+.idea/workspace.xml
+src/main/java/view/.DS_Store
+src/main/java/view/page/.DS_Store
+src/main/java/view/page/implementes/.DS_Store
