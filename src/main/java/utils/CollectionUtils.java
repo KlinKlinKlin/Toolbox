@@ -1,4 +1,4 @@
-package com.eazytec.bills.toolkit;
+package utils;
 
 import java.util.Collection;
 import java.util.Map;

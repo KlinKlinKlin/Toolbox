@@ -1257,7 +1257,7 @@ public class DateTools {
             Date secondDate = getYearFirst(getYear(lastYear));
             createNaturalMonth(times,secondDate,endTime);
         }
-        if(com.eazytec.bills.toolkit.CollectionUtils.isNotEmpty(times)) {
+        if(CollectionUtils.isNotEmpty(times)) {
             Comparator<Times> year = Comparator.comparing(Times::getYear);
             Comparator<Times> month = Comparator.comparing(Times::getMonth);
         // 先以年升序排列，再按照月升序排列

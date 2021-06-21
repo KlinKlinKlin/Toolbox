@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -28,7 +29,12 @@ public class SwingUtil {
         jFrame.setResizable(false);
         
         Map<String,Integer> size = calcSystemSize(w,h);
-        
+
+//        HashMap<String, Integer> size = new HashMap<>(2);
+//
+//        size.put("x",2000);
+//        size.put("y",300);
+
         jFrame.setBounds(size.get("x"),size.get("y"),w,h);
 
         return jFrame;
@@ -101,6 +107,30 @@ public class SwingUtil {
     public static JLabel createLabel(String label){
         return new JLabel(label,JLabel.CENTER);
     }
+
+    /***
+     * 创建一个带字体颜色的标签
+     * @param label
+     * @return
+     */
+    public static JLabel createLabel(String label,Color color){
+        JLabel jLabel = createLabel(label);
+        jLabel.setForeground(color);
+        return jLabel;
+    }
+
+    /***
+     * 创建一个带字体颜色字体的标签
+     * @param label
+     * @return
+     */
+    public static JLabel createLabel(String label,Color color,Font font){
+        JLabel jLabel = createLabel(label);
+        jLabel.setForeground(color);
+        jLabel.setFont(font);
+        return jLabel;
+    }
+
     /***
      * 创建一个指定大小的标签
      * @param label
@@ -131,5 +161,31 @@ public class SwingUtil {
         JTextField field = new JTextField();
         field.setPreferredSize(new Dimension(x,y));
         return field;
+    }
+
+    /***
+     * 创建一个string下拉框
+     * @param list
+     * @return
+     */
+    public static JComboBox createComboBox(List<String> list){
+        JComboBox<String> box = new JComboBox<>();
+        if(CollectionUtils.isNotEmpty(list)){
+            list.forEach(e-> box.addItem(e));
+        }
+        return box;
+    }
+
+    /***
+     * 创建一个string下拉框
+     * @param list
+     * @return
+     */
+    public static JComboBox createTimeFormetComboBox(List<TimeFormat> list){
+        JComboBox<TimeFormat> box = new JComboBox<>();
+        if(CollectionUtils.isNotEmpty(list)){
+            list.forEach(e-> box.addItem(e));
+        }
+        return box;
     }
 }
