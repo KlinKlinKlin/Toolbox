@@ -99,7 +99,7 @@ public class SwingUtil {
      * @return
      */
     public static JLabel createLabel(String label){
-        return new JLabel(label);
+        return new JLabel(label,JLabel.CENTER);
     }
     /***
      * 创建一个指定大小的标签
