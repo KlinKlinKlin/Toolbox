@@ -5,6 +5,7 @@ import org.json.JSONObject;
 import utils.Layout.AfColumnLayout;
 import utils.Layout.AfRowLayout;
 import utils.SwingUtil;
+import view.page.dataProcessing.jsonProcessing.JsonData;
 import view.page.interfaces.Conversion;
 
 import javax.swing.*;
@@ -52,7 +53,9 @@ public class JSONConversion implements Conversion {
 
         JButton formatBtn = SwingUtil.createButton("格式化");
         formatBtn.addActionListener(e -> format(parentPanel) );
+
         JButton beanBtn = SwingUtil.createButton("生成Java对象");
+        beanBtn.addActionListener(e -> createJavaBean(parentPanel));
 
         bntPanel.add(formatBtn,"25%");
         bntPanel.add(SwingUtil.createPanel(),"50%");
@@ -64,6 +67,20 @@ public class JSONConversion implements Conversion {
         return panel;
     }
 
+    private void createJavaBean(JPanel parentPanel) {
+        if(!left.getText().isEmpty()){
+            String text = left.getText();
+            if(isJSON(text)){
+               String bean =  new JsonData().processingData(text);
+                resultPanel(bean);
+            }else
+                JOptionPane.showMessageDialog(parentPanel,"请输入正确的JSON","JSON",JOptionPane.ERROR_MESSAGE);
+        }else
+            JOptionPane.showMessageDialog(parentPanel,"请输入JSON","JSON",JOptionPane.ERROR_MESSAGE);
+
+
+    }
+
     private void format(JPanel parentPanel) {
         if(!left.getText().isEmpty()){
             String text = left.getText();
@@ -72,6 +89,7 @@ public class JSONConversion implements Conversion {
                 if (text.startsWith("{")) {
                     JSONObject jsonObject = new JSONObject(text);
                     String formatJson = jsonObject.toString(4);
+                    System.out.println(formatJson);
                     resultPanel(formatJson);
                 } else if (text.startsWith("[")) {
                     JSONArray jsonArray = new JSONArray(text);
