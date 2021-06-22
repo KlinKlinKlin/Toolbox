@@ -188,4 +188,29 @@ public class SwingUtil {
         }
         return box;
     }
+
+    /***
+     * 创建一个大文本区
+     * @return
+     */
+    public static JTextArea createTextArea(){
+        JTextArea textArea = new JTextArea();
+        return textArea;
+    }
+
+    /***
+     * 创建一个 带滑块的 容器
+     * @param view 需要滑块的组件
+     * @return
+     */
+    public static JScrollPane createScrollPane(Component view){
+        JScrollPane pane = new JScrollPane(view);
+
+        pane.setHorizontalScrollBarPolicy(
+                JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        pane.setVerticalScrollBarPolicy(
+                JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+
+        return pane;
+    }
 }

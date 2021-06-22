@@ -18,6 +18,7 @@ public class View {
     public static void createGUI() {
         // 创建一个 窗口
         JFrame frame = SwingUtil.createJFrame("小工具", 500, 500);
+//        frame.setAlwaysOnTop(true);
         // 底层容器
         Container contentPane = frame.getContentPane(); // 窗口容器
         // 一个面板

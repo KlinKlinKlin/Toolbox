@@ -49,10 +49,10 @@ public class TimeConversion  implements Conversion {
         JLabel time1 = SwingUtil.createLabel("支持【HH:mm:ss】",Color.orange,new Font("楷体",Font.BOLD, 16));
         JLabel time2 = SwingUtil.createLabel("支持【yyyy-MM-dd】",Color.orange,new Font("楷体",Font.BOLD, 16));
         JLabel time3 = SwingUtil.createLabel("支持【yyyy-MM-dd HH:mm:ss】",Color.orange,new Font("楷体",Font.BOLD, 16));
-        labelPanel.add(label,"25%");
-        labelPanel.add(time1,"25%");
-        labelPanel.add(time2,"25%");
-        labelPanel.add(time3,"25%");
+        labelPanel.add(label,"33%");
+//        labelPanel.add(time1,"25%");
+        labelPanel.add(time2,"33%");
+        labelPanel.add(time3,"33%");
 
 
 
