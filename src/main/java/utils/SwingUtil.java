@@ -177,7 +177,7 @@ public class SwingUtil {
     }
 
     /***
-     * 创建一个string下拉框
+     * 创建一个对象下拉框
      * @param list
      * @return
      */
@@ -199,18 +199,29 @@ public class SwingUtil {
     }
 
     /***
-     * 创建一个 带滑块的 容器
-     * @param view 需要滑块的组件
+     * 创建一个 带滚动条的 容器
+     * @param view 需要滚动条的组件
      * @return
      */
     public static JScrollPane createScrollPane(Component view){
         JScrollPane pane = new JScrollPane(view);
 
+        // 内容超出可视范围 横向纵向自动出现滚动条
         pane.setHorizontalScrollBarPolicy(
                 JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         pane.setVerticalScrollBarPolicy(
                 JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 
         return pane;
+    }
+
+    /***
+     * 创建一个单选框
+     * @param s
+     * @return
+     */
+    public static JRadioButton createJRadioButton(String s){
+        JRadioButton button = new JRadioButton(s);
+        return button;
     }
 }

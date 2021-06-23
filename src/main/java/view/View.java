@@ -42,8 +42,8 @@ public class View {
 
         JMenuBar jMenuBar = new JMenuBar();
         JMenu jMenu = new JMenu("菜单");
-        for (int i = 0; i < Constant.MENU.length; i++) {
-            JMenuItem jMenuItem = new JMenuItem(Constant.MENU[i]);
+        for (int i = 0; i < Menus.MENU.length; i++) {
+            JMenuItem jMenuItem = new JMenuItem(Menus.MENU[i]);
             jMenuItem.addActionListener(e->showPage(e,pages));
             jMenu.add(jMenuItem);
         }
@@ -66,13 +66,13 @@ public class View {
     private static void createPage(JPanel pages) {
         pages.setLayout(new CardLayout());
 
-        for (int i = 0; i < Constant.MENU.length; i++) {
+        for (int i = 0; i < Menus.MENU.length; i++) {
 
             JPanel panel = SwingUtil.createPanel();
 
-            new Client(new PagesImpl()).createPage(panel,Constant.MENU[i]);
+            new Client(new PagesImpl()).createPage(panel, Menus.MENU[i]);
 
-            pages.add(Constant.MENU[i],panel);
+            pages.add(Menus.MENU[i],panel);
         }
     }
 }

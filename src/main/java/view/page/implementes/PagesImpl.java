@@ -1,6 +1,6 @@
 package view.page.implementes;
 
-import view.Constant;
+import view.Menus;
 import view.page.client.Client;
 import view.page.interfaces.Conversion;
 import view.page.interfaces.Pages;
@@ -13,7 +13,7 @@ import javax.swing.*;
  */
 public class PagesImpl implements Pages {
 
-    private static String menus [] = Constant.MENU;
+    private static String menus [] = Menus.MENU;
 
     private Conversion conversion;
 
