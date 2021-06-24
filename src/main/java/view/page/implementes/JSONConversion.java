@@ -191,8 +191,13 @@ public class JSONConversion implements Conversion {
         String text = className.getText();
         if(text.isEmpty())
             text = "JavaBean";
-        List<String> bean =  new JsonData().processingData(data,map,text);
-        resultPanel(bean);
+        try {
+
+            List<String> bean =  new JsonData().processingData(data,map,text);
+            resultPanel(bean);
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,"解析失败","JSON",JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /***
@@ -218,17 +223,22 @@ public class JSONConversion implements Conversion {
                 size += 1;
             double x = 400;
             double percentage =  (x / (400 * size)) * 100;
-            panel.setPreferredSize(new Dimension(900,400*size));
-
+//            panel.setPreferredSize(new Dimension(900,400*size));
+            int pageSize = 0;
             for (int i = 1; i <= size; i++) {
                 PageInfo<JTextArea> page = PageInfoUtils.getPage(jTextAreas, i, 3);
                 List<JTextArea> list = page.getList();
-
+                pageSize = list.size();
                 JPanel jPanel = SwingUtil.createPanel();
                 jPanel.setLayout(new AfRowLayout());
                 list.forEach(e->{
                     JScrollPane scrollPane = SwingUtil.createScrollPane(e);
-                    jPanel.add(scrollPane,"33%");
+                    String string = "33%" ;
+                    if(list.size() == 1)
+                        string = "100%";
+                    if(list.size() == 2)
+                        string = "50%";
+                    jPanel.add(scrollPane,string);
                 });
                 panel.add(jPanel,(int) percentage+"%");
 
@@ -236,7 +246,14 @@ public class JSONConversion implements Conversion {
             JPanel panel1 = SwingUtil.createPanel();
             panel1.add(panel);
             JScrollPane scrollPane = SwingUtil.createScrollPane(panel);
-            scrollPane.setPreferredSize(new Dimension(1000,500));
+            int y = 400;
+            double width;
+            if(size > 1)
+                width = y * 3;
+            else
+                width = pageSize * y;
+            panel.setPreferredSize(new Dimension((int) width,400*size));
+            scrollPane.setPreferredSize(new Dimension((int) width,500));
             JOptionPane.showMessageDialog(null,scrollPane,"JSON",JOptionPane.PLAIN_MESSAGE);
         }
     }
