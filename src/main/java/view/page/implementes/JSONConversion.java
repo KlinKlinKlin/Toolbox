@@ -184,7 +184,7 @@ public class JSONConversion implements Conversion {
 
     /***
      * 生成java对象
-     * @param parentPanel
+     * @param data
      */
     private void createJavaBean(String data) {
         LinkedHashMap<String,Boolean> map = exaractSelected();
@@ -216,9 +216,9 @@ public class JSONConversion implements Conversion {
             int size = jTextAreas.size() / 3;
             if(jTextAreas.size() % 3 > 0)
                 size += 1;
-            double x = 300;
-            double percentage =  (x / (300 * size)) * 100;
-            panel.setPreferredSize(new Dimension(900,300*size));
+            double x = 400;
+            double percentage =  (x / (400 * size)) * 100;
+            panel.setPreferredSize(new Dimension(900,400*size));
 
             for (int i = 1; i <= size; i++) {
                 PageInfo<JTextArea> page = PageInfoUtils.getPage(jTextAreas, i, 3);
