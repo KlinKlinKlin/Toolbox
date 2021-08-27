@@ -6,6 +6,6 @@ package view;
  */
 public class Menus {
 
-    public static final String MENU [] = {"时间戳转换","JSON转换","Mysql连接测试","Redis连接测试","查看PDM文件"};
+    public static final String MENU [] = {"时间戳转换","JSON转换","Mysql连接测试","Redis连接测试","查看PDM文件","PDF转Word"};
 
 }

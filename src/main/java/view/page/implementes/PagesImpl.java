@@ -33,6 +33,8 @@ public class PagesImpl implements Pages {
                                     Client.createPage(new RedisConversion(),panel); break;
                 case "查看PDM文件":
                                     Client.createPage(new PDMConversion(),panel); break;
+                case "PDF转Word":
+                                    Client.createPage(new PDFConversion(),panel); break;
             }
         }
     }
