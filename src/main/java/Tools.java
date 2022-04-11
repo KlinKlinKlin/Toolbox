@@ -13,7 +13,7 @@ public class Tools {
         System.setProperty("apple.laf.useScreenMenuBar", "true");
 //      把菜单 显示到顶部菜单栏
         System.setProperty("com.apple.mrj.application.apple.menu.about.name", "Name");
-
+        System.out.println("test");
         try {
             // 皮肤
             FlatDarculaLaf.install();
